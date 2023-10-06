@@ -72,12 +72,11 @@ function typeText(element, text, speed) {
   }, speed);
 }
 
-});
-
 const container = document.querySelector('.typing-container');
 const textToType = "\"Creativity is contagious, pass it on\" - Albert Einstein";
 
 typeText(container, textToType, 200);
+});
 
 /*Slide-In Animation*/
 

@@ -25,22 +25,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*Typing Container*/
 
-function typeText(element, text, speed) {
-  let charIndex = 0;
-  const typingInterval = setInterval(() => {
-    if (charIndex < text.length) {
-      element.textContent += text.charAt(charIndex);
-      charIndex++;
-    } else {
-      clearInterval(typingInterval);
-    }
-  }, speed);
-}
-
-const container = document.querySelector('.typing-container');
-const textToType = "\"The future belongs to those who believe in the beauty of their dreams.\" -  Eleanor Roosevelt";
-
-typeText(container, textToType, 200);
+document.addEventListener('DOMContentLoaded', function() {
+  function typeText(element, text, speed) {
+    let charIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (charIndex < text.length) {
+        element.textContent += text.charAt(charIndex);
+        charIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, speed);
+  }
+  
+  const container = document.querySelector('.typing-container');
+  const textToType = "\"Creativity is contagious, pass it on\" - Albert Einstein";
+  
+  typeText(container, textToType, 200);
+  });
 
 /*Slide-In Animation*/
 
