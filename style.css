@@ -310,15 +310,17 @@ button#darkModeToggle.btn.btn-darkmode:hover {
 /*Header Text Animation*/
 
 .h1-top {
+  z-index: 1;
+  color: #371B58;
   text-align: center;
-  padding: 10px;
-  font-family: "Jost", sans-serif;
-  color: white;
-  font-size: 90px;
-  border-radius: 50px;
+  white-space: normal;
+  padding: 1rem;
+  font-family: 'Oooh Baby', cursive;
+  font-size: 4rem;
   opacity: 0;
   transform: translateY(-20px);
   animation: fade-in 3s forwards;
+  line-height: 4rem; 
 }
 
 @keyframes fade-in {
