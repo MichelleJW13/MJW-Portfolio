@@ -372,6 +372,10 @@ button#darkModeToggle.btn.btn-darkmode:hover {
   .h1-top {
     font-size: 3.5rem;
   }
+
+  .nav-pills {
+    text-align: center;
+  }
 }
 
 /*Item Slide*/
