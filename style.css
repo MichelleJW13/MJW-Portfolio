@@ -226,7 +226,7 @@ button#darkModeToggle.btn.btn-darkmode {
   padding: 5px 15px;
   font-size: 14px;
   line-height: 1;
-  margin: 1rem;
+  margin: 2rem;
 }
 
 button#darkModeToggle.btn.btn-darkmode.dark-mode {
