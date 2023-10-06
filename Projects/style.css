@@ -50,6 +50,7 @@
 
 .nav-link.active:hover {
   background-color: #FB8C00 !important;
+  border-color: #FB8C00 !important;
 }
 
 /*Footer Image*/
