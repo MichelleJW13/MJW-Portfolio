@@ -277,12 +277,10 @@ button#darkModeToggle.btn.btn-darkmode:hover {
 /* Header Line */
 
 .linetop {
-  z-index: -1;
-  width: 10px;
-  height: 150px;
+  width: 10%;
+  height: 5%;
   border-radius: 20px;
-  margin-top: -150px;
-  background-color: #371B58;
+  background: #371B58;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
