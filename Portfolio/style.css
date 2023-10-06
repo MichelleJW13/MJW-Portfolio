@@ -377,6 +377,11 @@ button#darkModeToggle.btn.btn-darkmode:hover {
   transition: box-shadow 0.5s ease-in-out;
 }
 
+.dark-mode .nav-link {
+  color: white !important;
+}
+
+
 /* Header Line */
 
 .linetop {
