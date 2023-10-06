@@ -94,14 +94,14 @@ hr {
 /* Nav Bar*/
 
 .nav.nav-pills.flex-column.flex-sm-row {
-  padding: 10px;
+  padding: 15px;
   margin: 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  border-radius: 10px;
-  font-size: 22px;
-  font-family: "Roboto", sans-serif;
+  border-radius: 15px;
+  font-size: 2rem;
+  font-family: 'Cantora One', sans-serif;
 }
 
 .nav-link {
