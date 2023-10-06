@@ -44,6 +44,7 @@ profileImage.addEventListener('mouseleave', resetAnimation);
 
 /* Dark Mode */
 
+document.addEventListener('DOMContentLoaded', function () {
   const darkModeToggle = document.getElementById('darkModeToggle');
   const body = document.body;
 
@@ -53,6 +54,8 @@ profileImage.addEventListener('mouseleave', resetAnimation);
     body.classList.toggle('dark-mode');
     darkModeToggle.textContent = body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
   }
+});
+
 
 /*Typing Container*/
 

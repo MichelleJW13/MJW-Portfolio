@@ -10,6 +10,7 @@ function animateImage() {
 
 /* Dark Mode */
 
+document.addEventListener('DOMContentLoaded', function () {
   const darkModeToggle = document.getElementById('darkModeToggle');
   const body = document.body;
 
@@ -19,6 +20,8 @@ function animateImage() {
     body.classList.toggle('dark-mode');
     darkModeToggle.textContent = body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
   }
+});
+
 
 
 /*Slide-In Animation*/
