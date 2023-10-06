@@ -60,23 +60,30 @@ document.addEventListener('DOMContentLoaded', function () {
 /*Typing Container*/
 
 document.addEventListener('DOMContentLoaded', function() {
-function typeText(element, text, speed) {
-  let charIndex = 0;
-  const typingInterval = setInterval(() => {
-    if (charIndex < text.length) {
-      element.textContent += text.charAt(charIndex);
-      charIndex++;
-    } else {
-      clearInterval(typingInterval);
-    }
-  }, speed);
-}
+  function typeText(element, text, speed) {
+      let charIndex = 0;
 
-const container = document.querySelector('.typing-container');
-const textToType = "\"Creativity is contagious, pass it on\" - Albert Einstein";
+      const typingInterval = setInterval(() => {
+          try {
+              if (charIndex < text.length) {
+                  element.textContent += text.charAt(charIndex);
+                  charIndex++;
+              } else {
+                  clearInterval(typingInterval);
+              }
+          } catch (error) {
+              console.error("An error occurred:", error);
+              clearInterval(typingInterval); // Stop the interval on error
+          }
+      }, speed);
+  }
 
-typeText(container, textToType, 200);
+  const container = document.querySelector('.typing-container');
+  const textToType = "\"Creativity is contagious, pass it on\" - Albert Einstein";
+
+  typeText(container, textToType, 150);
 });
+
 
 /*Slide-In Animation*/
 
