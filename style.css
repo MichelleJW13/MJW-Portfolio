@@ -80,7 +80,8 @@
   text-align: center;
   border-radius: 10px;
   background-color: #4C3575;
-  margin: 0.25rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
 }
 
 .main3 {
@@ -90,8 +91,9 @@
   padding: 20px;
   border-radius: 10px;
   background-color: #4C3575;
-  margin: 0.25rem;
   justify-content: center;
+  margin-right: 5rem;
+  margin-left: 5rem;
 }
 
 
