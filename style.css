@@ -240,6 +240,10 @@ a:visited {
   transition: opacity 1.0s ease-in-out, color 0.5s ease-in-out 0.2s;
 }
 
+#cert-img {
+  max-width: 70%;
+}
+
 /* Dark Mode CSS */
 
 button#darkModeToggle.btn.btn-darkmode {

@@ -115,6 +115,13 @@
 
 /* Main Class Attributes */
 
+hr {
+  border: none; 
+  height: 5px;
+  background-color: #371B58; 
+  margin: 20px 0; 
+}
+
 .h2 {
   text-align: center;
   font-family: "Cantora One", sans-serif;
@@ -233,6 +240,10 @@ a:visited {
   opacity: 1;
   color: #FB8C00;
   transition: opacity 1.0s ease-in-out, color 0.5s ease-in-out 0.2s;
+}
+
+#cert-img {
+  max-width: 70%;
 }
 
 /* Dark Mode CSS */
