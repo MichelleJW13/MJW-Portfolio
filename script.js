@@ -42,13 +42,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Fetch Asynchronous Pup */
 
-const fetchButton = document.getElementById("fetch-button");
-const asyncImage = document.getElementById("async-image");
+ document.addEventListener('DOMContentLoaded', function() {
+      const fetchButton = document.getElementById("fetch-button");
+      const asyncImage = document.getElementById("async-image");
 
-fetchButton.addEventListener("click", () => {
-  asyncImage.style.opacity = 0;
-  setTimeout(() => {
-    asyncImage.src = "https://assets.codepen.io/10052609/shiloh-vector1-fetch.png";
-    asyncImage.style.opacity = 1;
-  }, 300); 
-});
+      fetchButton.addEventListener("click", () => {
+        asyncImage.style.opacity = 0;
+        setTimeout(() => {
+          asyncImage.src = "https://assets.codepen.io/10052609/shiloh-vector1-fetch.png";
+          asyncImage.style.opacity = 1;
+        }, 300); 
+      });
+    });
