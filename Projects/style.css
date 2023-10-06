@@ -168,8 +168,7 @@ button {
 
 body {
   background-color: white;
-  color: #66347f;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Jost', sans-serif;
   transition: background-color 0.3s ease-in-out;
 }
 
