@@ -192,6 +192,27 @@ a:visited {
   color: #d27685;
 }
 
+/* Header Attributes */
+
+#header-icon {
+  display: flex;
+  max-width: 80%;
+  margin: auto;
+  transform: translateY(20px);
+  animation: fade-in-from-bottom 1s forwards;
+}
+
+@keyframes fade-in-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
 .header {
   display: flex;
   flex: 2;
