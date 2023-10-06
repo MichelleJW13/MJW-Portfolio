@@ -188,6 +188,14 @@ a:visited {
   color: #d27685;
 }
 
+#header-icon {
+  display: flex;
+  max-width: 80%;
+  margin: auto;
+  transform: translateY(20px);
+  animation: fade-in-from-bottom 1s forwards;
+}
+
 .header {
   display: flex;
   flex: 2;
