@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
               }
           } catch (error) {
               console.error("An error occurred:", error);
-              clearInterval(typingInterval); // Stop the interval on error
+              clearInterval(typingInterval); 
           }
       }, speed);
   }
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const container = document.querySelector('.typing-container');
   const textToType = "\"Creativity is contagious, pass it on\" - Albert Einstein";
 
-  typeText(container, textToType, 150);
+  typeText(container, textToType, 125);
 });
 
 
