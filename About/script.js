@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const container = document.querySelector('.typing-container');
-  const textToType = "\"Creativity is contagious, pass it on\" - Albert Einstein";
+  const textToType = "\"The future belongs to those who believe in the beauty of their dreams.\" -  Eleanor Roosevelt";
 
   typeText(container, textToType, 125);
 });
