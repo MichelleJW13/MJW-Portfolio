@@ -394,7 +394,7 @@ button#darkModeToggle.btn.btn-darkmode:hover {
   width: 600px;
   margin: 20px auto;
   text-align: center;
-  color: #FFF;
+  color: #FFF !important;
 }
 
 /*Media Queries*/
