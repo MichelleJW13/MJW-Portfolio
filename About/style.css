@@ -138,6 +138,13 @@
   }
 }
 
+.h3, #h3 {
+  font-size: 1.5rem;
+  font-family: "Cantora One", sans-serif;
+  text-align: center;
+  color: #FFF !important;
+}
+
 #h3-footer {
   font-size: 4rem;
   font-weight: bold;
