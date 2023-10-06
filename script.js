@@ -1,47 +1,3 @@
-/*Header Animation*/
-const profileImage = document.getElementById('profile-image');
-
-function animateImage() {
-  profileImage.style.transform = 'translateY(-10px) scale(1.10)';
-  setTimeout(() => {
-    profileImage.style.transform = 'translateY(0) scale(1)';
-  }, 1000);
-}
-
-profileImage.addEventListener('mouseenter', animateImage);
-
-let isZoomed = false;
-
-function zoomIn() {
-  if (!isZoomed) {
-    profileImage.style.transform = 'scale(1.10)';
-    isZoomed = true;
-  }
-}
-
-function zoomOut() {
-  if (isZoomed) {
-    profileImage.style.transform = 'scale(1)';
-    isZoomed = false;
-  }
-}
-
-profileImage.addEventListener('mouseenter', zoomIn);
-profileImage.addEventListener('mouseleave', zoomOut);
-
-const profileHeading = document.getElementById('profile-heading');
-
-function animateImage() {
-  profileHeading.classList.add('animate');
-}
-
-function resetAnimation() {
-  profileHeading.classList.remove('animate');
-}
-
-profileImage.addEventListener('mouseenter', animateImage);
-profileImage.addEventListener('mouseleave', resetAnimation);
-
 /* Dark Mode */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -83,24 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   typeText(container, textToType, 125);
 });
-
-
-/*Slide-In Animation*/
-
-const textElement = document.querySelector('.slide-in-text');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      textElement.classList.add('active');
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.5
-});
-
-observer.observe(textElement);
 
 /* Fetch Asynchronous Pup */
 
