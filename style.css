@@ -374,7 +374,7 @@ button#darkModeToggle.btn.btn-darkmode:hover {
 /*Typing Container*/
 
 .typing-container {
-  font-size: 22px;
+  font-size: 1.5rem;
   font-family: Oooh Baby, sans-serif;
   border: 0px;
   padding: 10px;

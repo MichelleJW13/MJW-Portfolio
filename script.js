@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*Typing Container*/
 
+document.addEventListener('DOMContentLoaded', function() {
 function typeText(element, text, speed) {
   let charIndex = 0;
   const typingInterval = setInterval(() => {
@@ -71,10 +72,12 @@ function typeText(element, text, speed) {
   }, speed);
 }
 
+});
+
 const container = document.querySelector('.typing-container');
 const textToType = "\"Creativity is contagious, pass it on\" - Albert Einstein";
 
-typeText(container, textToType, 100);
+typeText(container, textToType, 200);
 
 /*Slide-In Animation*/
 

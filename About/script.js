@@ -40,7 +40,7 @@ function typeText(element, text, speed) {
 const container = document.querySelector('.typing-container');
 const textToType = "\"The future belongs to those who believe in the beauty of their dreams.\" -  Eleanor Roosevelt";
 
-typeText(container, textToType, 100);
+typeText(container, textToType, 200);
 
 /*Slide-In Animation*/
 
