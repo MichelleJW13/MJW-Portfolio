@@ -422,6 +422,10 @@ button#darkModeToggle.btn.btn-darkmode:hover {
     width: 100%;
     flex-direction: column;
   }
+
+  .nav-pills {
+    text-align: center;
+  }
 }
 
 /* Quote Generator */
