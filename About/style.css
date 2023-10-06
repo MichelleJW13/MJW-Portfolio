@@ -27,11 +27,11 @@
 }
 
 .nav-link {
-   color: #4C3575 !important;
-  border: 1px solid #4C3575;
-  border-radius: 15px;
+  color: #4C3575 !important;
+  border: 8px solid #4C3575 !important;
+  border-radius: 20px;
   padding: 10px 20px;
-  margin: 0 15px;
+  margin: 5px 15px;
 }
 
 .nav-link:hover {
