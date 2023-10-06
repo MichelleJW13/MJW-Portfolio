@@ -51,22 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-/*Slide-In Animation*/
-
-const textElement = document.querySelector('.slide-in-text');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      textElement.classList.add('active');
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.5
-});
-
-observer.observe(textElement);
 
 /* Fetch Asynchronous Pup */
 
