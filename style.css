@@ -119,6 +119,13 @@
 
 /* Main Class Attributes */
 
+hr {
+  border: none; 
+  height: 5px;
+  background-color: #371B58; 
+  margin: 20px 0; 
+}
+
 .h2 {
   text-align: center;
   font-family: "Cantora One", sans-serif;
