@@ -131,7 +131,7 @@ hr {
   margin: 0;
 }
 
-#h3-footer {
+#h3-footer, .h3 {
   font-size: 4rem;
   font-weight: bold;
   font-family: "Cantora One", sans-serif;

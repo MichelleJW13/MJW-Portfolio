@@ -218,6 +218,14 @@ hr {
   color: #FFF !important;
 }
 
+#h3-footer {
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: "Cantora One", sans-serif;
+  text-align: center;
+  color: #FFF;
+}
+
 ul {
   color: #FFF;
   text-indent: 10px;
