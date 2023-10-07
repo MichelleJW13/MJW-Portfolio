@@ -521,14 +521,15 @@ button#darkModeToggle.btn.btn-darkmode:hover {
 /* Bootstrap Accordian */
 
 .accordion-item button.accordion-button[aria-expanded="true"] {
-    background-color: #371B58; 
-    color: #fff; 
+  background-color: #371B58; 
+  color: #fff; 
 }
 
-.accordion-button {
-    color: #FF0000; 
-    font-weight: bold; 
-    font-family: "Cantora One", sans-serif;
+.accordion-item button.accordion-button {
+  color: black; 
+  font-weight: bold; 
+  font-family: "Cantora One", sans-serif;
+font-size: 2rem;
 }
 
 
