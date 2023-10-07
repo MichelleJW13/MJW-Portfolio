@@ -360,6 +360,8 @@ button#darkModeToggle.btn.btn-darkmode:hover {
   animation: fade-in 3s forwards;
   background-image: linear-gradient(180deg, #66347F, #7858A6);
   -webkit-background-clip: text;
+  background-clip: text; 
+  -moz-background-clip: text;
   color: transparent;
   line-height: 7rem; 
 }
