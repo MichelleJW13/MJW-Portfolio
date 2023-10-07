@@ -255,15 +255,16 @@ button#darkModeToggle.btn.btn-darkmode {
   color: #fff;
   border-radius: 20px;
   padding: 20px 20px;
-  font-size: 1rem;
+  width: auto;
+  font-size: 1.5rem;
   line-height: 1;
   margin: 1rem;
   font-family: "Oooh Baby",sans-serif;
 }
 
-button#darkModeToggle.btn.btn-darkmode.dark-mode {
+.dark-mode button#darkModeToggle.btn.btn-darkmode {
   background-color: #f8f9fa;
-  color: #000;
+  color: #C45509;
 }
 
 #darkModeToggle {
