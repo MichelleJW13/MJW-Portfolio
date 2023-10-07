@@ -314,33 +314,22 @@ button#darkModeToggle.btn.btn-darkmode:hover {
 /* Header Line */
 
 .linetop {
-  width: 10%;
-  height: 5%;
+  width: 90%;
+  height: 2rem;
   border-radius: 20px;
+  margin: auto;
+  padding: 5px;
   background: #371B58;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: expandLine 1s linear forwards;
-}
-
-.linebottom {
-  width: 10px;
-  height: 20px;
-  border-radius: 20px;
-  background-color: rgba(158, 71, 132);
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   animation: expandLine 1s linear forwards;
 }
 
 @keyframes expandLine {
-  0% {
-    width: 10px;
+  from {
+    transform: scaleX(0);
   }
-  100% {
-    width: calc(100% - 20px);
+  to {
+    transform: scaleX(1);
   }
 }
 
