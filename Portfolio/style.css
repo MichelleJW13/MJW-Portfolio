@@ -133,16 +133,14 @@ hr {
 
 /*Footer Image*/
 
-.rounded-image {
-  border-radius: 70%;
+.page-top {
+  margin: 0 auto;
 }
-
-/* Flex Box */
 
 .grid-container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   gap: 0.5rem;
   margin-top: 0.5rem;
@@ -151,26 +149,25 @@ hr {
 
 .main1,
 .main2 {
-  flex: 3;
-  padding: 15px;
+  flex: 1;
+  padding: 20px;
+  border: 10px solid white;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #4C3575;
-  margin: 0.25rem;
 }
 
 .main3 {
+  display: flex;
   flex: 1;
   flex-wrap: wrap;
   padding: 20px;
-  border-radius: 10px;
+  border: 10px solid white;
+  border-radius: 20px;
   background-color: #4C3575;
-  margin: 0.25rem;
   justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 
@@ -179,10 +176,11 @@ hr {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #371B58;
   margin: 0.25rem;
   font-size: 2rem;
+  padding: 1rem;
 }
 
 #footer-copyright {

@@ -79,13 +79,12 @@
 .main2 {
   flex: 1;
   padding: 20px;
+  border: 10px solid white;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #4C3575;
-  margin-right: 5rem;
-  margin-left: 5rem;
 }
 
 .main3 {
@@ -93,11 +92,10 @@
   flex: 1;
   flex-wrap: wrap;
   padding: 20px;
-  border-radius: 10px;
+  border: 10px solid white;
+  border-radius: 20px;
   background-color: #4C3575;
   justify-content: center;
-  margin-right: 5rem;
-  margin-left: 5rem;
 }
 
 
@@ -106,7 +104,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #371B58;
   margin: 0.25rem;
   font-size: 2rem;
