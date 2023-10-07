@@ -276,6 +276,7 @@ a:visited {
   margin: auto;
   transform: translateY(20px);
   animation: fade-in-from-bottom 1s forwards;
+  border-radius: 3rem;
 }
 
 @keyframes fade-in-from-bottom {

@@ -62,6 +62,7 @@
 /* Flex Box */
 
 .page-top {
+  display: flex;
   justify-content: center;
   margin-right: 5rem;
   margin-left: 5rem;
@@ -212,6 +213,7 @@ a:visited {
   transform: translateY(20px);
   animation: fade-in-from-bottom 1s forwards;
   padding: 2rem;
+  border-radius: 3rem;
 }
 
 @keyframes fade-in-from-bottom {
