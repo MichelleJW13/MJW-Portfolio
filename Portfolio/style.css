@@ -382,6 +382,17 @@ button#darkModeToggle.btn.btn-darkmode:hover {
   color: white !important;
 }
 
+.dark-mode .h1-top {
+  color: #fff;
+}
+
+.dark-mode hr {
+  border: none; 
+  height: 5px;
+  background-color: #FFF; 
+  margin: 20px 0; 
+}
+
 
 /* Header Line */
 
