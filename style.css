@@ -251,6 +251,11 @@ a:visited {
 
 #cert-img {
   max-width: 70%;
+  margin: 0 auto;
+}
+
+.certificate {
+  text-align: center;
 }
 
 /* Dark Mode CSS */
