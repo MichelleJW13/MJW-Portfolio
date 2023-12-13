@@ -52,3 +52,73 @@ fetchButton.addEventListener("click", () => {
     asyncImage.style.opacity = 1;
   }, 300); 
 });
+
+/* PDf Viewer */
+const pdfUrl = 'https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf';
+
+const pdfContainer = document.getElementById('pdf-container');
+
+function loadPDFViewer() {
+    fetch(pdfUrl)
+        .then(response => response.arrayBuffer())
+        .then(data => {
+            // Load PDF data
+            pdfjsLib.getDocument(data).promise
+                .then(pdfDoc => {
+                    
+                    pdfDoc.getPage(1).then(page => {
+                        const viewport = page.getViewport({ scale: 1.5 });
+                        const canvas = document.createElement('canvas');
+                        const context = canvas.getContext('2d');
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        pdfContainer.appendChild(canvas);
+
+                        
+                        page.render({ canvasContext: context, viewport });
+                    });
+                })
+                .catch(error => console.error('Error loading PDF:', error));
+        });
+}
+
+/* PDF Buttons */
+let pdfDoc = null;
+let pageNum = 1;
+const scale = 1.5;
+
+function renderPage(pageNumber) {
+  pdfDoc.getPage(pageNumber).then(page => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    const viewport = page.getViewport({ scale });
+
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    pdfContainer.innerHTML = '';
+    pdfContainer.appendChild(canvas);
+
+    page.render({ canvasContext: context, viewport });
+  });
+}
+
+function prevPage() {
+  if (pageNum <= 1) return;
+  pageNum--;
+  renderPage(pageNum);
+}
+
+function nextPage() {
+  if (pageNum >= pdfDoc.numPages) return;
+  pageNum++;
+  renderPage(pageNum);
+}
+
+async function loadPdf(url) {
+  const loadingTask = pdfjsLib.getDocument(url);
+  pdfDoc = await loadingTask.promise;
+  renderPage(pageNum);
+}
+
+loadPdf('https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf');
