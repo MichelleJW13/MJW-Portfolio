@@ -54,6 +54,9 @@ fetchButton.addEventListener("click", () => {
 });
 
 /* PDf Viewer */
+
+document.addEventListener('DOMContentLoaded', function () {
+
 const pdfUrl = 'https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf';
 
 const pdfContainer = document.getElementById('pdf-container');
@@ -82,7 +85,12 @@ function loadPDFViewer() {
         });
 }
 
+});
+
+loadPdf('https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf');
+
 /* PDF Buttons */
+
 let pdfDoc = null;
 let pageNum = 1;
 const scale = 1.5;
@@ -120,5 +128,3 @@ async function loadPdf(url) {
   pdfDoc = await loadingTask.promise;
   renderPage(pageNum);
 }
-
-loadPdf('https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf');
