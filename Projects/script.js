@@ -65,7 +65,7 @@ function loadPDFViewer() {
     fetch(pdfUrl)
         .then(response => response.arrayBuffer())
         .then(data => {
-            // Load PDF data
+        
             pdfjsLib.getDocument(data).promise
                 .then(pdfDoc => {
                     
