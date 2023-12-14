@@ -113,6 +113,18 @@
 
 /* Main Class Attributes */
 
+.btn.btn-primary {
+  background-color: #371B58;
+  font-family: "Cantora One", sans-serif;
+  border: none;
+  height: 4rem;
+  width: auto;
+}
+
+.btn.btn-primary:hover {
+  background-color: #FB8C00;
+}
+
 .PDF-div {
   max-width: 70%;
   margin: 0 auto;
@@ -245,6 +257,11 @@ a:visited {
 
 #small-thumbnail {
   max-width: 40%;
+}
+
+#project-thumbnail {
+  max-width: 60%;
+  height: auto;
 }
 
 #kickout-prev {
