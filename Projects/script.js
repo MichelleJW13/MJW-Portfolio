@@ -55,32 +55,39 @@ fetchButton.addEventListener("click", () => {
 
 /* PDf Viewer */
 
-document.addEventListener('DOMContentLoaded', function () {
+function loadPDFViewer() {
   const pdfUrl = 'https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf';
   const pdfContainer = document.getElementById('pdf-container');
 
-  function loadPDFViewer() {
-      fetch(pdfUrl)
-          .then(response => response.arrayBuffer())
-          .then(data => {
-              pdfjsLib.getDocument(data).promise
-                  .then(pdfDoc => {
-                      pdfDoc.getPage(1).then(page => {
-                          const viewport = page.getViewport({ scale: 1.5 });
-                          const canvas = document.createElement('canvas');
-                          const context = canvas.getContext('2d');
-                          canvas.height = viewport.height;
-                          canvas.width = viewport.width;
-                          pdfContainer.appendChild(canvas);
+  fetch(pdfUrl)
+      .then(response => response.arrayBuffer())
+      .then(data => {
+          pdfjsLib.getDocument(data).promise
+              .then(pdfDoc => {
+                  pdfDoc.getPage(1).then(page => {
+                      const viewport = page.getViewport({ scale: 1.5 });
+                      const canvas = document.createElement('canvas');
+                      const context = canvas.getContext('2d');
+                      canvas.height = viewport.height;
+                      canvas.width = viewport.width;
+                      pdfContainer.innerHTML = ''; // Clear previous content
+                      pdfContainer.appendChild(canvas);
 
-                          page.render({ canvasContext: context, viewport });
-                      });
-                  })
-                  .catch(error => console.error('Error loading PDF:', error));
-          });
+                      page.render({ canvasContext: context, viewport });
+                  });
+              })
+              .catch(error => console.error('Error loading PDF:', error));
+      });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  const loadPDFButton = document.getElementById('load-pdf-button');
+  if (loadPDFButton) {
+      loadPDFButton.addEventListener('click', loadPDFViewer);
   }
 
-  
+ 
   loadPDFViewer();
 });
 
