@@ -53,55 +53,58 @@ fetchButton.addEventListener("click", () => {
   }, 300); 
 });
 
-/* PDf Viewer */
+/* PDF Viewer */
 
-function loadPDFViewer() {
+(function () {
   const pdfUrl = 'https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf';
   const pdfContainer = document.getElementById('pdf-container');
+  const loadPdfButton = document.getElementById('load-pdf-button');
 
-  fetch(pdfUrl)
-      .then(response => response.arrayBuffer())
-      .then(data => {
-          pdfjsLib.getDocument(data).promise
-              .then(pdfDoc => {
-                  pdfDoc.getPage(1).then(page => {
-                      const viewport = page.getViewport({ scale: 1.5 });
-                      const canvas = document.createElement('canvas');
-                      const context = canvas.getContext('2d');
-                      canvas.height = viewport.height;
-                      canvas.width = viewport.width;
-                      pdfContainer.innerHTML = ''; // Clear previous content
-                      pdfContainer.appendChild(canvas);
+  function loadPDFViewer() {
+      fetch(pdfUrl)
+          .then(response => response.arrayBuffer())
+          .then(data => {
+              pdfjsLib.getDocument(data).promise
+                  .then(pdfDoc => {
+                      pdfDoc.getPage(1).then(page => {
+                          const viewport = page.getViewport({ scale: 0.75 });
+                          const canvas = document.createElement('canvas');
+                          const context = canvas.getContext('2d');
+                          canvas.height = viewport.height;
+                          canvas.width = viewport.width;
+                          pdfContainer.innerHTML = '';
+                          pdfContainer.appendChild(canvas);
 
-                      page.render({ canvasContext: context, viewport });
-                  });
-              })
-              .catch(error => console.error('Error loading PDF:', error));
-      });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  const loadPDFButton = document.getElementById('load-pdf-button');
-  if (loadPDFButton) {
-      loadPDFButton.addEventListener('click', loadPDFViewer);
+                          page.render({ canvasContext: context, viewport });
+                      });
+                  })
+                  .catch(error => console.error('Error loading PDF:', error));
+          });
   }
 
- 
-  loadPDFViewer();
-});
+  if (loadPdfButton) {
+      loadPdfButton.addEventListener('click', loadPDFViewer);
+  }
 
-/* PDF Buttons */
-let pdfDoc = null;
-let pageNum = 1;
-const scale = 1.5;
 
-function renderPage(pageNumber) {
-  pdfDoc.getPage(pageNumber).then(page => {
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
+  document.addEventListener('DOMContentLoaded', function () {
+      loadPDFViewer();
+  });
+
+  /* PDF Buttons */
+
+  let pdfDoc = null;
+  let pageNum = 1;
+  const scale = .75;
+
+  async function renderPage(pageNumber) {
+      if (!pdfDoc || pageNumber < 1 || pageNumber > pdfDoc.numPages) return;
+
+      const page = await pdfDoc.getPage(pageNumber);
       const viewport = page.getViewport({ scale });
 
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
       canvas.height = viewport.height;
       canvas.width = viewport.width;
 
@@ -109,25 +112,37 @@ function renderPage(pageNumber) {
       pdfContainer.appendChild(canvas);
 
       page.render({ canvasContext: context, viewport });
-  });
-}
+  }
 
-function prevPage() {
-  if (pageNum <= 1) return;
+  function prevPage() {
+if (pageNum > 1) {
   pageNum--;
   renderPage(pageNum);
 }
+}
 
 function nextPage() {
-  if (pageNum >= pdfDoc.numPages) return;
+if (pageNum < pdfDoc.numPages) {
   pageNum++;
   renderPage(pageNum);
 }
-
-async function loadPDF(url) {
-  const loadingTask = pdfjsLib.getDocument(url);
-  pdfDoc = await loadingTask.promise;
-  renderPage(pageNum);
 }
 
-loadPDF('https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf');
+  document.getElementById('prev-page-button').addEventListener('click', prevPage);
+  document.getElementById('next-page-button').addEventListener('click', nextPage);
+
+  async function loadPDF(url) {
+      const loadingTask = pdfjsLib.getDocument(url);
+      pdfDoc = await loadingTask.promise;
+      pageNum = 1;
+      renderPage(pageNum);
+  }
+
+  if (loadPdfButton) {
+      loadPdfButton.addEventListener('click', () => loadPDF(pdfUrl));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+      loadPDF(pdfUrl);
+  });
+})();
