@@ -55,7 +55,7 @@ fetchButton.addEventListener("click", () => {
 
 /* PDF Viewer */
 
- const pdfUrl = '/Media/projectPAWS-presentation1.pdf';
+const pdfUrl = 'https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf';
  const pdfContainer = document.getElementById('pdf-container');
  const loadPdfButton = document.getElementById('load-pdf-button');
 
@@ -87,64 +87,64 @@ fetchButton.addEventListener("click", () => {
     }
 
     if (loadPdfButton) {
-        loadPdfButton.addEventListener('click', loadPDFViewer);
-    }
+    loadPdfButton.addEventListener('click', loadPDFViewer);
+}
   
     })();
 
-    /* PDF Buttons */
+ /* PDF Buttons */
 
-    let pdfDoc = null;
-    let pageNum = 1;
-    const scale = .75;
-    
-    async function renderPage(pageNumber, loadPdfButton) {
-      if (!pdfDoc || pageNumber < 1 || pageNumber > pdfDoc.numPages) return;
-    
-      const page = await pdfDoc.getPage(pageNumber);
-      const viewport = page.getViewport({ scale });
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-    
-      pdfContainer.innerHTML = '';
-      pdfContainer.appendChild(canvas);
-    
-      page.render({ canvasContext: context, viewport });
-    
-    }
-    
-    function prevPage() {
-      if (!pdfDoc) return;
-    
-      if (pageNum > 1) {
-        pageNum--;
-        console.log("New page number:", pageNum);
-        renderPage(pageNum);
-      }
-    }
-    
-    function nextPage() {
-      if (!pdfDoc) return;
-    
-      if (pageNum < pdfDoc.numPages) {
-        pageNum++;
-        console.log("New page number:", pageNum);
-        renderPage(pageNum);
-      }
-    }
-    
-    document.getElementById('prev-page-button').addEventListener('click', prevPage);
-    document.getElementById('next-page-button').addEventListener('click', nextPage);
-    
-    async function loadPDF(url) {
-      const loadingTask = pdfjsLib.getDocument(url);
-      pdfDoc = await loadingTask.promise;
-      pageNum = 1;
-      renderPage(pageNum);
-    }
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      loadPDF(pdfUrl);
-    });
+let pdfDoc = null;
+let pageNum = 1;
+const scale = .75;
+
+async function renderPage(pageNumber) {
+  if (!pdfDoc || pageNumber < 1 || pageNumber > pdfDoc.numPages) return;
+
+  const page = await pdfDoc.getPage(pageNumber);
+  const viewport = page.getViewport({ scale });
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  canvas.height = viewport.height;
+  canvas.width = viewport.width;
+
+  document.getElementById('pdf-container').innerHTML = '';
+  document.getElementById('pdf-container').appendChild(canvas);
+
+  page.render({ canvasContext: context, viewport });
+
+}
+
+function prevPage() {
+  if (!pdfDoc) return;
+
+  if (pageNum > 1) {
+    pageNum--;
+    console.log("New page number:", pageNum);
+    renderPage(pageNum);
+  }
+}
+
+function nextPage() {
+  if (!pdfDoc) return;
+
+  if (pageNum < pdfDoc.numPages) {
+    pageNum++;
+    console.log("New page number:", pageNum);
+    renderPage(pageNum);
+  }
+}
+
+document.getElementById('prev-page-button').addEventListener('click', prevPage);
+document.getElementById('next-page-button').addEventListener('click', nextPage);
+
+async function loadPDF(url) {
+  const loadingTask = pdfjsLib.getDocument(url);
+  pdfDoc = await loadingTask.promise;
+  pageNum = 1;
+  renderPage(pageNum);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadPDF(pdfUrl);
+});
