@@ -42,8 +42,8 @@ observer.observe(textElement);
 
 /* Fetch Asynchronous Pup */
 
-const fetchButton = document.getElementById("fetch-button");
-const asyncImage = document.getElementById("async-image");
+const fetchButton = document.getElementById('fetch-button');
+const asyncImage = document.getElementById('async-image');
 
 fetchButton.addEventListener("click", () => {
   asyncImage.style.opacity = 0;
