@@ -96,52 +96,54 @@ fetchButton.addEventListener("click", () => {
     let pdfDoc = null;
     let pageNum = 1;
     const scale = .75;
-
-    async function renderPage(pageNumber) {
-        if (!pdfDoc || pageNumber < 1 || pageNumber > pdfDoc.numPages) return;
-
-        const page = await pdfDoc.getPage(pageNumber);
-        const viewport = page.getViewport({ scale });
-        
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        pdfContainer.innerHTML = '';
-        pdfContainer.appendChild(canvas);
-
-        page.render({ canvasContext: context, viewport });
+    
+    async function renderPage(pageNumber, loadPdfButton) {
+      if (!pdfDoc || pageNumber < 1 || pageNumber > pdfDoc.numPages) return;
+    
+      const page = await pdfDoc.getPage(pageNumber);
+      const viewport = page.getViewport({ scale });
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+    
+      pdfContainer.innerHTML = '';
+      pdfContainer.appendChild(canvas);
+    
+      page.render({ canvasContext: context, viewport });
+    
     }
-
+    
     function prevPage() {
-  if (pageNum > 1) {
-    pageNum--;
-    renderPage(pageNum);
-  }
-}
-
-function nextPage() {
-  if (pageNum < pdfDoc.numPages) {
-    pageNum++;
-    renderPage(pageNum);
-  }
-}
-
+      if (!pdfDoc) return;
+    
+      if (pageNum > 1) {
+        pageNum--;
+        console.log("New page number:", pageNum);
+        renderPage(pageNum);
+      }
+    }
+    
+    function nextPage() {
+      if (!pdfDoc) return;
+    
+      if (pageNum < pdfDoc.numPages) {
+        pageNum++;
+        console.log("New page number:", pageNum);
+        renderPage(pageNum);
+      }
+    }
+    
     document.getElementById('prev-page-button').addEventListener('click', prevPage);
     document.getElementById('next-page-button').addEventListener('click', nextPage);
-
+    
     async function loadPDF(url) {
-        const loadingTask = pdfjsLib.getDocument(url);
-        pdfDoc = await loadingTask.promise;
-        pageNum = 1;
-        renderPage(pageNum);
+      const loadingTask = pdfjsLib.getDocument(url);
+      pdfDoc = await loadingTask.promise;
+      pageNum = 1;
+      renderPage(pageNum);
     }
-
-    if (loadPdfButton) {
-        loadPdfButton.addEventListener('click', () => loadPDF(pdfUrl));
-    }
-
+    
     document.addEventListener('DOMContentLoaded', () => {
-        loadPDF(pdfUrl);
+      loadPDF(pdfUrl);
     });
