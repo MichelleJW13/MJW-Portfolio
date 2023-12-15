@@ -56,93 +56,92 @@ fetchButton.addEventListener("click", () => {
 /* PDF Viewer */
 
 (function () {
-  const pdfUrl = 'https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf';
-  const pdfContainer = document.getElementById('pdf-container');
-  const loadPdfButton = document.getElementById('load-pdf-button');
-
-  function loadPDFViewer() {
-      fetch(pdfUrl)
-          .then(response => response.arrayBuffer())
-          .then(data => {
-              pdfjsLib.getDocument(data).promise
-                  .then(pdfDoc => {
-                      pdfDoc.getPage(1).then(page => {
-                          const viewport = page.getViewport({ scale: 0.75 });
-                          const canvas = document.createElement('canvas');
-                          const context = canvas.getContext('2d');
-                          canvas.height = viewport.height;
-                          canvas.width = viewport.width;
-                          pdfContainer.innerHTML = '';
-                          pdfContainer.appendChild(canvas);
-
-                          page.render({ canvasContext: context, viewport });
-                      });
-                  })
-                  .catch(error => console.error('Error loading PDF:', error));
-          });
-  }
-
-  if (loadPdfButton) {
-      loadPdfButton.addEventListener('click', loadPDFViewer);
-  }
-
-
   document.addEventListener('DOMContentLoaded', function () {
-      loadPDFViewer();
+    loadPDFViewer();
   });
+    const pdfUrl = 'https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf';
+    const pdfContainer = document.getElementById('pdf-container');
+    const loadPdfButton = document.getElementById('load-pdf-button');
 
-  /* PDF Buttons */
+    function loadPDFViewer() {
+        fetch(pdfUrl)
+            .then(response => response.arrayBuffer())
+            .then(data => {
+                pdfjsLib.getDocument(data).promise
+                    .then(pdfDoc => {
+                        pdfDoc.getPage(1).then(page => {
+                            const viewport = page.getViewport({ scale: 0.75 });
+                            const canvas = document.createElement('canvas');
+                            const context = canvas.getContext('2d');
+                            canvas.height = viewport.height;
+                            canvas.width = viewport.width;
+                            pdfContainer.innerHTML = '';
+                            pdfContainer.appendChild(canvas);
 
-  let pdfDoc = null;
-  let pageNum = 1;
-  const scale = .75;
+                            page.render({ canvasContext: context, viewport });
+                        });
+                    })
+                    .catch(error => console.error('Error loading PDF:', error));
+            });
+    }
 
-  async function renderPage(pageNumber) {
-      if (!pdfDoc || pageNumber < 1 || pageNumber > pdfDoc.numPages) return;
+    if (loadPdfButton) {
+        loadPdfButton.addEventListener('click', loadPDFViewer);
+    }
+  
+    })();
 
-      const page = await pdfDoc.getPage(pageNumber);
-      const viewport = page.getViewport({ scale });
+    /* PDF Buttons */
 
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
+    let pdfDoc = null;
+    let pageNum = 1;
+    const scale = .75;
 
-      pdfContainer.innerHTML = '';
-      pdfContainer.appendChild(canvas);
+    async function renderPage(pageNumber) {
+        if (!pdfDoc || pageNumber < 1 || pageNumber > pdfDoc.numPages) return;
 
-      page.render({ canvasContext: context, viewport });
+        const page = await pdfDoc.getPage(pageNumber);
+        const viewport = page.getViewport({ scale });
+        
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        pdfContainer.innerHTML = '';
+        pdfContainer.appendChild(canvas);
+
+        page.render({ canvasContext: context, viewport });
+    }
+
+    function prevPage() {
+  if (pageNum > 1) {
+    pageNum--;
+    renderPage(pageNum);
   }
-
-  function prevPage() {
-if (pageNum > 1) {
-  pageNum--;
-  renderPage(pageNum);
-}
 }
 
 function nextPage() {
-if (pageNum < pdfDoc.numPages) {
-  pageNum++;
-  renderPage(pageNum);
-}
-}
-
-  document.getElementById('prev-page-button').addEventListener('click', prevPage);
-  document.getElementById('next-page-button').addEventListener('click', nextPage);
-
-  async function loadPDF(url) {
-      const loadingTask = pdfjsLib.getDocument(url);
-      pdfDoc = await loadingTask.promise;
-      pageNum = 1;
-      renderPage(pageNum);
+  if (pageNum < pdfDoc.numPages) {
+    pageNum++;
+    renderPage(pageNum);
   }
+}
 
-  if (loadPdfButton) {
-      loadPdfButton.addEventListener('click', () => loadPDF(pdfUrl));
-  }
+    document.getElementById('prev-page-button').addEventListener('click', prevPage);
+    document.getElementById('next-page-button').addEventListener('click', nextPage);
 
-  document.addEventListener('DOMContentLoaded', () => {
-      loadPDF(pdfUrl);
-  });
-})();
+    async function loadPDF(url) {
+        const loadingTask = pdfjsLib.getDocument(url);
+        pdfDoc = await loadingTask.promise;
+        pageNum = 1;
+        renderPage(pageNum);
+    }
+
+    if (loadPdfButton) {
+        loadPdfButton.addEventListener('click', () => loadPDF(pdfUrl));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadPDF(pdfUrl);
+    });
