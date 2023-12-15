@@ -8,8 +8,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open portfolio.html",
-            "file": "c:\\Users\\mjwar\\Documents\\GitHub\\MJW-Portfolio-Site\\Portfolio\\portfolio.html"
+            "name": "Open projects.html",
+            "file": "c:\\Users\\mjwar\\Documents\\GitHub\\MJW-Portfolio-Site\\Projects\\projects.html"
         }
     ]
 }
