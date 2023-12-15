@@ -55,7 +55,7 @@ fetchButton.addEventListener("click", () => {
 
 /* PDF Viewer */
 
- const pdfUrl = 'Media\projectPAWS-presentation1.pdf';
+ const pdfUrl = '/Media/projectPAWS-presentation1.pdf';
  const pdfContainer = document.getElementById('pdf-container');
  const loadPdfButton = document.getElementById('load-pdf-button');
 
