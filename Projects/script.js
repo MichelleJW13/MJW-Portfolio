@@ -55,13 +55,14 @@ fetchButton.addEventListener("click", () => {
 
 /* PDF Viewer */
 
+const pdfUrl = 'https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf';
+ const pdfContainer = document.getElementById('pdf-container');
+ const loadPdfButton = document.getElementById('load-pdf-button');
+
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     loadPDFViewer();
   });
-    const pdfUrl = 'https://assets.codepen.io/10052609/projectPAWS-presentation1.pdf';
-    const pdfContainer = document.getElementById('pdf-container');
-    const loadPdfButton = document.getElementById('load-pdf-button');
 
     function loadPDFViewer() {
         fetch(pdfUrl)
