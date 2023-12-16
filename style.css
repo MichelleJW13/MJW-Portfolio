@@ -119,6 +119,17 @@
 
 /* Main Class Attributes */
 
+.card-text {
+  color: black;
+  font-size: 20px;
+}
+
+.card-img-top {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 5px;
+}
+
 hr {
   border: none; 
   height: 5px;
