@@ -53,7 +53,7 @@ fetchButton.addEventListener("click", () => {
   }, 300); 
 });
 
-/* PDF Viewer */
+/* PDF Viewer
 
  const pdfUrl = '../Media/projectPAWS-presentation1.pdf';
  const pdfContainer = document.getElementById('pdf-container');
@@ -92,7 +92,7 @@ fetchButton.addEventListener("click", () => {
   
     })();
 
- /* PDF Buttons */
+ /* PDF Buttons
 
 let pdfDoc = null;
 let pageNum = 1;
@@ -148,3 +148,4 @@ async function loadPDF(url) {
 document.addEventListener('DOMContentLoaded', () => {
   loadPDF(pdfUrl);
 });
+*/
