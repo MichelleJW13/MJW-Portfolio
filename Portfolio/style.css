@@ -162,7 +162,7 @@ hr {
 .main3 {
   display: flex;
   flex: 1;
-  text-wrap: wrap;
+  flex-wrap: wrap;
   padding: 20px;
   border: 10px solid white;
   border-radius: 20px;
