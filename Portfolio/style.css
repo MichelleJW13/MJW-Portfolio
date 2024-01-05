@@ -163,6 +163,7 @@ hr {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
+  text-wrap: wrap;
   padding: 20px;
   border: 10px solid white;
   border-radius: 20px;
